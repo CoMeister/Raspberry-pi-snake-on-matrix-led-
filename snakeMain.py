@@ -117,7 +117,7 @@ def eatApple():
     else:
         apple = [random.randrange(1, 62), random.randrange(1, 30)]  # pop Pomme
 
-    print "---------------------------------- manger apple ----------------------------------"
+    print "---------------------------------- eat apple ----------------------------------"
     print apple
     print "---------------------------------- ------------ ----------------------------------"
     snakeObjet.addElemCorp()
@@ -342,7 +342,7 @@ def play(pos): # 2 easy, 1 medium, 0 hard
         graphics.DrawLine(offscreen_canvas, 0, 31, 0, 1, graphics.Color(100, 100, 100))
         offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)  # clear canva
     eatApp = False
-    matrix.SetPixel(apple[0], apple[1], 255, 20, 20)  # afficher la apple
+    matrix.SetPixel(apple[0], apple[1], 255, 20, 20)  # show apple
     oldLastCorp = [5, 1]
     while True:
         print pos
@@ -363,7 +363,7 @@ def play(pos): # 2 easy, 1 medium, 0 hard
                 pause()
 
             #matrix.Clear()
-            matrix.SetPixel(oldLastCorp[0], oldLastCorp[1], 0, 0, 0)  # effacer le dernier ellement du corp
+            matrix.SetPixel(oldLastCorp[0], oldLastCorp[1], 0, 0, 0)  # delete last body ellement
 
             matrix.SetPixel(snakeObjet.getTeteX(), snakeObjet.getTeteY(), 55, 43, 89)  # afficher la tete
 
@@ -395,13 +395,13 @@ def play(pos): # 2 easy, 1 medium, 0 hard
                 elif snakeObjet.getTeteX() == 63:
                     gameOver()
 
-            matrix.SetPixel(apple[0], apple[1], 255, 20, 20)  # afficher la apple
+            matrix.SetPixel(apple[0], apple[1], 255, 20, 20)  # show apple
             if eatApp == True:
                 if pos == 0:
                     popObstacles()
                     eatApp = False
 
-            if (snakeObjet.tete == apple):  # manger apple
+            if (snakeObjet.tete == apple):  # eat apple
                 eatApple()
                 eatApp = True
             else:
